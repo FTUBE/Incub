@@ -29,15 +29,10 @@ using namespace boost;
 
 int main(){
   
-  char url[] = "";
+  char url[] = "www.bilibili.com";
   char burl[] = "new.html";
   char hurl[] = "new_header";
-  int i = 0;
-  while(true){
-    cout<<i++<<endl;
-    singlecatch(url,burl,hurl,false);
-  }
-  /*char *flexible = new char[128];
+  char *flexible = new char[128];
     
   queue<string> q;
   string root(url);
@@ -49,13 +44,13 @@ int main(){
     string current = q.front();
     q.pop();
     strcpy(flexible,current.c_str());
-    char *data = singlecatch(flexible,burl,hurl);
+    char *data = singlecatch(flexible,burl,hurl,true);
     queue<string> next = freq_ana(data);
     while(!next.empty()){
       q.push(next.front());
       next.pop();
     }
-    }*/
+  }
   
   return 0;
 } 
@@ -163,13 +158,14 @@ int convert(const char *from, const char *to, char* save, int savelen, char *src
 
 char* singlecatch(char *url, char*burl, char*hurl,bool decode){
 
-  //  cout << "Catching : " << url << endl;
+  cout << "Catching : " << url << endl;
   httpget(url,burl,hurl);
-  
-  // cout << "Body and Header stored.\n";
+  cout << "Body and Header stored.\n";
+
   if(!decode){
     return NULL;
   }
+  
   FILE *bfile,*hfile;
   
   hfile = fopen(hurl,"r");
