@@ -20,18 +20,17 @@ char* load_from_page(const char*);
 
 int main(){
 
-  char s1[] ="本书为《红楼梦》诸多续书中格调最为低下的一种。语言淫秽，情节以《红楼梦》中人物为主，但时有色情场面出现，对于少年男女间两性关系，远较《红楼梦》更为直露，一经刊出，不仅立遭禁毁，即连大批推崇《红楼梦》的文人学士，亦同声讨伐攻讦，成为一时盛事。清道光年间著名情爱小说，主要情节由丑陋男子艳羡风情所产生的的性幻想构成。书中鄙弃世俗情爱价值，大写喜新而不厌旧的花痴型男子走马灯般更换情人，不仅先后与十女发生性爱，且同时以数女为妻妾，日日聊床大战，而女性亦纵情享乐，丫环拉小姐下水，小姐为情郎猎艳，最终姊妹、主仆、母女、闺友网常颠覆秽乱不堪，极逞性想像之奇，令人目瞪口呆。通篇皆为男女情事，尤以大量的婚外性关系描写令人啧舌。其间男女道德观念淡薄，无视理法，随意通奸而无羞耻感，反映了当时社会风尚的变迁，人的本能欲望得到重视，对个体生命、感官快乐的追求得到强调，是中国社会早期婚外恋现象的真切记载。";
-  char s2[] ="因为很重要我必须说两遍，知识点最重要";
+  char s1[] ="";
+  char s2[] ="";
 
   char *raw_data = load_from_page("data");
-
   vector<string> sentences = getsentences(parse(raw_data));
   cout << "Sentences : \n\n";
-  //  for(int i = 0; i < sentences.size();i++) cout << sentences[i] << endl;
+  //for(int i = 0; i < sentences.size();i++) cout << sentences[i] << endl;
   map<string,int> learn = try_inset(sentences);
   cout << "\nLearn Set : \n\n";
   map<string,int>::iterator it = learn.begin();
-  for(;it != learn.end();it++) cout << it->first << endl;
+  for(;it != learn.end();it++) cout << it->first <<" "<<it->second<< endl;
   /*  cout <<strlen(s1)<<endl;
   cout << strlen(s2)<<endl;
   */
@@ -142,7 +141,7 @@ vector<string> getsentences(char *raw){
 
   vector<string> s_set;
 
-  char special_char[] = "，。／；、［］｛｝＝－＋＊（）：；！～｀《》？的了是这么那";
+  char special_char[] = "，。／；、［］｛｝＝－＋＊（）：；！～｀《》？的了是着这那在";
 
   char *pointer = raw;
 

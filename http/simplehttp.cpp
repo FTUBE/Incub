@@ -27,14 +27,14 @@ using namespace boost;
 
 
 
-int main(){
+int main(int argv,char *args[]){
   
-  char url[] = "www.bilibili.com";
-  char burl[] = "new.html";
+  char *url = args[1];
+  char burl[] = "../segmentation/data";
   char hurl[] = "new_header";
   char *flexible = new char[128];
-    
-  queue<string> q;
+  char *data = singlecatch(url,burl,hurl,true);
+  /*  queue<string> q;
   string root(url);
   q.push(root);
   globalfreq[root]++;
@@ -50,7 +50,7 @@ int main(){
       q.push(next.front());
       next.pop();
     }
-  }
+    }*/
   
   return 0;
 } 

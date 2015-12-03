@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: Tengine/2.1.0
+Date: Thu, 03 Dec 2015 17:39:26 GMT
+Content-Type: text/html;charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+user: def
+Content-Language: zh-CN
+Content-Encoding: gzip
+Vary: Accept-Encoding
+X-Cache-Status: MISS
+X-Ser: QWEB0087_dxyhnzz1, QWEB00218_hkhk4
+
